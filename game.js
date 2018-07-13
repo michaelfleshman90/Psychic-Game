@@ -9,26 +9,35 @@ var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k", "l", "m", "n",
 var i;
 var letterChosen = alphabet[Math.floor(Math.random() * alphabet.length)];
 
+document.onkeyup = function() {choice()}
+function choice() {
+    for (var i = 0; i < alphabet.length; i++)
+        lettersGuessed = lettersGuessed + .onkeyup;
+};
+//player win counter +1, else guesses left -1
 function counters() {
     if (playerGuess === letterChosen) {
         playerWins = playerWins + 1;
     } else {
         guessesLeft = guessesLeft - 1;
     }
+    //player lose if guesses =0
     if (guessesLeft === 0) {
         playerLoses = playerLoses - 1;
     }
 };
+//if player wins updates the page +1
 function update() {
     if (playerGuess === letterChosen) {
         text1 += "<br>Wins: " + 1;
-    } else {
+    } else { //if not player guess -1
         text2 += "<br>Guesses left: " - 1;
     }
 }
 // player guesses reaches 0 then reset game.
-if (playerGuesses === 0) {
-    reset
+if (guessesLeft === 0) {
+    gameReset
 }
-document.getElementById("wins").innerHTML = text1;
-document.getElementById("guessesLeft").innerHTML = text2;
+                                    //would it be easier to call the function and have it write it on the html?
+document.getElementById("wins").innerHTML = "Wins: " + 1;
+document.getElementById("guessesLeft").innerHTML = "Guesses left: " - 1;
