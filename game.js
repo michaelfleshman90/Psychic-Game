@@ -1,24 +1,25 @@
 var playerWins;
 var playerLoses;
 var guessesLeft = 9;
-var playerGuess = document.onkeyup();
-var letterChosen;
 var lettersGuessed = [];
 var gameReset;
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var i;
-var letterChosen = alphabet[Math.floor(Math.random() * alphabet.length)];
+var computerGuess = alphabet[Math.floor(Math.random() * alphabet.length)];
 
 
-function choice() {
-    for (var i = 0; i < alphabet.length; i++)
-        if ()
+document.onkeyup = function keylog(event) {
+    letterGuessed.push(event.key);
+    console.log(letterGuessed);
+    var x = letterGuessed;
+    document.getElementById("guesses").innerHTML = x;
 };
+keylog(event);
+
+
 //player win counter +1, else guesses left -1
 function counters() {
     if (playerGuess === letterChosen) {
         playerWins = playerWins + 1;
-    break
     } else {
         guessesLeft = guessesLeft - 1;
     }
@@ -27,15 +28,13 @@ function counters() {
         playerLoses = playerLoses - 1;
     }
 };
-document.getElementById("#wins").innerHTML = + 1;
-document.getElementById("#guessesLeft").innerHTML = - 1;
-document.getElementById("#loses").innerHTML = + 1;
+
+//document.getElementById("#wins").innerHTML = playerWins;
+//document.getElementById("#guessesLeft").innerHTML = guessesLeft;
+//document.getElementById("#loses").innerHTML = playerLoses;
 //if player guess isnt right push letter into lettersguessed array
 function update() {
-    if (playerGuess ==! letterChosen) {
-        lettersGuessed_push(lettersGuessed, playerGuess);
-        
-    }
+    
 }
 // player guesses reaches 0 then reset game.
 if (guessesLeft === 0) {
@@ -44,4 +43,3 @@ if (guessesLeft === 0) {
                                     //would it be easier to call the function and have it write it on the html?
 
 
-document.onkeyup = function() {choice()}
